@@ -1,7 +1,13 @@
 import sys
 import json
+from argparse import ArgumentParser
 from PySide2.QtWidgets import *
 from PySide2.QtCore import *
+
+
+argument_parser = ArgumentParser()
+argument_parser.add_argument("character_json_file", type=str)
+arguments = argument_parser.parse_args()
 
 
 app = QApplication(sys.argv)
@@ -176,9 +182,7 @@ def spell(name: str, object):
 	current_layout.resizeColumnsToContents()
 
 
-
-character_file_path = "Hesindian.json"
-with open(character_file_path) as file:
+with open(arguments.character_json_file) as file:
 	character_file_text = file.read()
 character_json = json.loads(character_file_text)
 
