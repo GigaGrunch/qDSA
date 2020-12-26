@@ -83,29 +83,23 @@ def end_layout():
 	current_layout = parent_layouts[-1]
 	del(parent_layouts[-1])
 
-def label(text: str):
+def label(text: str, alignment = Qt.AlignCenter):
 	global current_layout
-	label = QLabel(text, alignment=Qt.AlignCenter)
+	label = QLabel(text, alignment=alignment)
 	label.setMargin(5)
-	current_layout.addWidget(label)
+	return label
 
 def attribute(name: str, value: int):
-	label("{}\n{}".format(name, value))
+	attribute_label = label("{}\n{}".format(name, value))
+	current_layout.addWidget(attribute_label)
 
 def talent(name: str, attributes, value: int):
 	global current_layout
 
-	name_label = QLabel(name)
-	name_label.setMargin(5)
-
-	attributes_label = QLabel("{} • {} • {}"
-		.format(attributes[0], attributes[1], attributes[2]),
-		alignment=Qt.AlignCenter)
-	attributes_label.setMargin(5)
-
-	value_label = QLabel(str(value),
-		alignment=Qt.AlignCenter)
-	value_label.setMargin(5)
+	name_label = label(name, alignment=Qt.AlignLeft)
+	attributes_label = label("{} • {} • {}"
+		.format(attributes[0], attributes[1], attributes[2]))
+	value_label = label(str(value))
 
 	row = current_layout.rowCount()
 	current_layout.setRowCount(row + 1)
@@ -118,11 +112,8 @@ def talent(name: str, attributes, value: int):
 def advantage(name: str, text: str):
 	global current_layout
 
-	name_label = QLabel(name)
-	name_label.setMargin(5)
-
-	text_label = QLabel(text)
-	text_label.setMargin(5)
+	name_label = label(name, alignment=Qt.AlignLeft)
+	text_label = label(text)
 
 	row = current_layout.rowCount()
 	current_layout.setRowCount(row + 1)
@@ -133,15 +124,10 @@ def advantage(name: str, text: str):
 def weapon(name: str, object):
 	global current_layout
 
-	name_label = QLabel(name)
-	name_label.setMargin(5)
-	at_label = QLabel(str(object["AT"]), alignment=Qt.AlignCenter)
-	at_label.setMargin(5)
-	pa_label = QLabel(str(object["PA"]), alignment=Qt.AlignCenter)
-	pa_label.setMargin(5)
-	tp_label = QLabel(str(object["TP"]), alignment=Qt.AlignCenter)
-	tp_label.setMargin(5)
-
+	name_label = label(name, alignment=Qt.AlignLeft)
+	at_label = label(str(object["AT"]))
+	pa_label = label(str(object["PA"]))
+	tp_label = label(str(object["TP"]))
 
 	row = current_layout.rowCount()
 	current_layout.setRowCount(row + 1)
@@ -156,17 +142,16 @@ def weapon(name: str, object):
 def spell(name: str, object):
 	global current_layout
 
-	name_label = QLabel(name, margin=5)
+	name_label = label(name, alignment=Qt.AlignLeft)
 	attributes = object["attributes"]
-	attributes_label = QLabel("{} • {} • {}"
-		.format(attributes[0], attributes[1], attributes[2]),
-		alignment=Qt.AlignCenter, margin=5)
-	value_label = QLabel(str(object["value"]), alignment=Qt.AlignCenter, margin=5)
-	cost_label = QLabel(object["cost"], alignment=Qt.AlignCenter, margin=5)
-	cast_time_label = QLabel(str(object["cast_time"]), alignment=Qt.AlignCenter, margin=5)
-	range_label = QLabel(str(object["range"]), alignment=Qt.AlignCenter, margin=5)
-	duration_label = QLabel(str(object["duration"]), alignment=Qt.AlignCenter, margin=5)
-	text_label = QLabel(object["text"], margin=5)
+	attributes_label = label("{} • {} • {}"
+		.format(attributes[0], attributes[1], attributes[2]))
+	value_label = label(str(object["value"]))
+	cost_label = label(object["cost"])
+	cast_time_label = label(str(object["cast_time"]))
+	range_label = label(str(object["range"]))
+	duration_label = label(str(object["duration"]))
+	text_label = label(object["text"], alignment=Qt.AlignLeft)
 
 	row = current_layout.rowCount()
 	current_layout.setRowCount(row + 1)
@@ -189,8 +174,8 @@ character_json = json.loads(character_file_text)
 
 
 # character name
-label(character_json["name"])
-
+name_label = label(character_json["name"])
+current_layout.addWidget(name_label)
 
 
 # attributes
