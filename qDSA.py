@@ -206,11 +206,17 @@ end_layout()
 
 
 # inventory
+def change_item_amount(name, amount):
+	print("{}: {}".format(name, amount))
+
 begin_sub_widget("Inventar")
 begin_table(2)
 
-item_label = QLabel("Dicke Axt", margin=5)
+item_label = QLabel("Kreuzer", margin=5)
 item_amount = QSpinBox()
+
+item_amount.valueChanged.connect(lambda: 
+	change_item_amount("Kreuzer", item_amount.value()))
 
 row = current_layout.rowCount()
 current_layout.setRowCount(row + 1)
