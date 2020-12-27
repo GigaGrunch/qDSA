@@ -11,6 +11,10 @@
 		"KO": 11,
 		"KK": 9
 	},
+	"inventory":
+	{
+		"money": 1600
+	},
 	"advantages":
 	{
 		"Zauberer": "Ja, ich kann zaubern",

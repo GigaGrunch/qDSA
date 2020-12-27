@@ -209,22 +209,25 @@ end_layout()
 def change_item_amount(name, amount):
 	print("{}: {}".format(name, amount))
 
-begin_sub_widget("Inventar")
-begin_table(2)
+if "inventory" in character_json:
+	begin_sub_widget("Inventar")
+	begin_table(2)
 
-item_label = QLabel("Kreuzer", margin=5)
-item_amount = QSpinBox()
+	money_label = QLabel("Kreuzer", margin=5)
+	money_spinbox = QSpinBox()
+	money_spinbox.setMaximum(999999)
+	money_spinbox.setValue(character_json["inventory"]["money"])
 
-item_amount.valueChanged.connect(lambda: 
-	change_item_amount("Kreuzer", item_amount.value()))
+	money_spinbox.valueChanged.connect(lambda: 
+		change_item_amount("Kreuzer", money_spinbox.value()))
 
-row = current_layout.rowCount()
-current_layout.setRowCount(row + 1)
-current_layout.setCellWidget(row, 0, item_label)
-current_layout.setCellWidget(row, 1, item_amount)
-current_layout.resizeColumnsToContents()
-end_layout()
-end_layout()
+	row = current_layout.rowCount()
+	current_layout.setRowCount(row + 1)
+	current_layout.setCellWidget(row, 0, money_label)
+	current_layout.setCellWidget(row, 1, money_spinbox)
+	current_layout.resizeColumnsToContents()
+	end_layout()
+	end_layout()
 
 
 # advantages
