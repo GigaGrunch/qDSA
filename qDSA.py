@@ -186,6 +186,9 @@ with open(arguments.character_json_file) as file:
 	character_file_text = file.read()
 character_json = json.loads(character_file_text)
 
+with open(arguments.character_json_file + ".backup", "w") as backup_file:
+	backup_file.write(character_file_text)
+
 
 
 # character name
