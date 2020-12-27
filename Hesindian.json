@@ -1,7 +1,6 @@
 {
 	"name": "Hesindian Schlangentreu",
-	"attributes":
-	{
+	"attributes": {
 		"MU": 12,
 		"KL": 15,
 		"IN": 14,
@@ -11,86 +10,299 @@
 		"KO": 11,
 		"KK": 9
 	},
-	"inventory":
-	{
+	"inventory": {
 		"money": 1600
 	},
-	"advantages":
-	{
+	"advantages": {
 		"Zauberer": "Ja, ich kann zaubern",
 		"Hohe Astralkraft VI": "+6 AsP",
 		"Verbesserte Regeneration (AsP) I": "+1 AsP pro Regenerationsphase",
 		"Artefaktgebunden": "-1 auf Zauber, wenn kein Kontakt zum Stab",
 		"Neugier": "Probe auf Willenskraft, um zu widerstehen"
 	},
-	"talents":
-	{
-		"Körpertalente":
-		{
-			"Klettern":           { "attributes": ["MU","GE","KK"], "value": 2 },
-			"Körperbeherrschung": { "attributes": ["GE","GE","KO"], "value": 0 },
-			"Kraftakt":           { "attributes": ["KO","KK","KK"], "value": 0 },
-			"Schwimmen":          { "attributes": ["GE","KO","KK"], "value": 2 },
-			"Selbstbeherrschung": { "attributes": ["MU","MU","KO"], "value": 4 },
-			"Sinnesschärfe":      { "attributes": ["KL","IN","IN"], "value": 2 },
-			"Verbergen":          { "attributes": ["MU","IN","GE"], "value": 0 }
+	"talents": {
+		"Körpertalente": {
+			"Klettern": {
+				"attributes": [
+					"MU",
+					"GE",
+					"KK"
+				],
+				"value": 2
+			},
+			"Körperbeherrschung": {
+				"attributes": [
+					"GE",
+					"GE",
+					"KO"
+				],
+				"value": 0
+			},
+			"Kraftakt": {
+				"attributes": [
+					"KO",
+					"KK",
+					"KK"
+				],
+				"value": 0
+			},
+			"Schwimmen": {
+				"attributes": [
+					"GE",
+					"KO",
+					"KK"
+				],
+				"value": 2
+			},
+			"Selbstbeherrschung": {
+				"attributes": [
+					"MU",
+					"MU",
+					"KO"
+				],
+				"value": 4
+			},
+			"Sinnesschärfe": {
+				"attributes": [
+					"KL",
+					"IN",
+					"IN"
+				],
+				"value": 2
+			},
+			"Verbergen": {
+				"attributes": [
+					"MU",
+					"IN",
+					"GE"
+				],
+				"value": 0
+			}
 		},
-		"Gesellschaftstalente":
-		{
-			"Betören":          { "attributes": ["MU","CH","CH"], "value": 0 },
-			"Einschüchtern":    { "attributes": ["MU","IN","CH"], "value": 0 },
-			"Gassenwissen":     { "attributes": ["KL","IN","CH"], "value": 2 },
-			"Menschenkenntnis": { "attributes": ["KL","IN","CH"], "value": 2 },
-			"Überreden":        { "attributes": ["MU","IN","CH"], "value": 2 },
-			"Verkleiden":       { "attributes": ["IN","CH","GE"], "value": 1 },
-			"Willenskraft":     { "attributes": ["MU","IN","CH"], "value": 3 }
+		"Gesellschaftstalente": {
+			"Betören": {
+				"attributes": [
+					"MU",
+					"CH",
+					"CH"
+				],
+				"value": 0
+			},
+			"Einschüchtern": {
+				"attributes": [
+					"MU",
+					"IN",
+					"CH"
+				],
+				"value": 0
+			},
+			"Gassenwissen": {
+				"attributes": [
+					"KL",
+					"IN",
+					"CH"
+				],
+				"value": 2
+			},
+			"Menschenkenntnis": {
+				"attributes": [
+					"KL",
+					"IN",
+					"CH"
+				],
+				"value": 2
+			},
+			"Überreden": {
+				"attributes": [
+					"MU",
+					"IN",
+					"CH"
+				],
+				"value": 2
+			},
+			"Verkleiden": {
+				"attributes": [
+					"IN",
+					"CH",
+					"GE"
+				],
+				"value": 1
+			},
+			"Willenskraft": {
+				"attributes": [
+					"MU",
+					"IN",
+					"CH"
+				],
+				"value": 3
+			}
 		},
-		"Naturtalente":
-		{
-			"Fährtensuchen": { "attributes": ["MU","IN","GE"], "value": 0 },
-			"Orientierung":  { "attributes": ["KL","IN","IN"], "value": 0 },
-			"Pflanzenkunde": { "attributes": ["KL","FF","KO"], "value": 2 },
-			"Tierkunde":     { "attributes": ["MU","MU","CH"], "value": 0 },
-			"Wildnisleben":  { "attributes": ["MU","GE","KO"], "value": 0 }
+		"Naturtalente": {
+			"Fährtensuchen": {
+				"attributes": [
+					"MU",
+					"IN",
+					"GE"
+				],
+				"value": 0
+			},
+			"Orientierung": {
+				"attributes": [
+					"KL",
+					"IN",
+					"IN"
+				],
+				"value": 0
+			},
+			"Pflanzenkunde": {
+				"attributes": [
+					"KL",
+					"FF",
+					"KO"
+				],
+				"value": 2
+			},
+			"Tierkunde": {
+				"attributes": [
+					"MU",
+					"MU",
+					"CH"
+				],
+				"value": 0
+			},
+			"Wildnisleben": {
+				"attributes": [
+					"MU",
+					"GE",
+					"KO"
+				],
+				"value": 0
+			}
 		},
-		"Wissenstalente":
-		{
-			"Geographie":       { "attributes": ["KL","KL","IN"], "value": 6 },
-			"Geschichtswissen": { "attributes": ["KL","KL","IN"], "value": 7 },
-			"Götter & Kulte":   { "attributes": ["KL","KL","IN"], "value": 7 },
-			"Kriegskunst":      { "attributes": ["MU","KL","IN"], "value": 0 },
-			"Magiekunde":       { "attributes": ["KL","KL","IN"], "value": 10 },
-			"Sagen & Legenden": { "attributes": ["KL","KL","IN"], "value": 8 }
+		"Wissenstalente": {
+			"Geographie": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 6
+			},
+			"Geschichtswissen": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 7
+			},
+			"Götter & Kulte": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 7
+			},
+			"Kriegskunst": {
+				"attributes": [
+					"MU",
+					"KL",
+					"IN"
+				],
+				"value": 0
+			},
+			"Magiekunde": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 10
+			},
+			"Sagen & Legenden": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 8
+			}
 		},
-		"Handwerkstalente":
-		{
-			"Alchimie":         { "attributes": ["MU","KL","FF"], "value": 4 },
-			"Handel":           { "attributes": ["KL","IN","CH"], "value": 2 },
-			"Heilkunde Gift":   { "attributes": ["MU","KL","IN"], "value": 4 },
-			"Heilkunde Wunden": { "attributes": ["KL","FF","FF"], "value": 2 },
-			"Schlösserknacken": { "attributes": ["IN","FF","FF"], "value": 0 }
+		"Handwerkstalente": {
+			"Alchimie": {
+				"attributes": [
+					"MU",
+					"KL",
+					"FF"
+				],
+				"value": 4
+			},
+			"Handel": {
+				"attributes": [
+					"KL",
+					"IN",
+					"CH"
+				],
+				"value": 2
+			},
+			"Heilkunde Gift": {
+				"attributes": [
+					"MU",
+					"KL",
+					"IN"
+				],
+				"value": 4
+			},
+			"Heilkunde Wunden": {
+				"attributes": [
+					"KL",
+					"FF",
+					"FF"
+				],
+				"value": 2
+			},
+			"Schlösserknacken": {
+				"attributes": [
+					"IN",
+					"FF",
+					"FF"
+				],
+				"value": 0
+			}
 		}
 	},
-	"combat":
-	{
-		"base":
-		{
+	"combat": {
+		"base": {
 			"Initiative": 12,
 			"Ausweichen": 6,
 			"Geschwindigkeit": 8
 		},
-		"weapons":
-		{
-			"Magierstab": { "AT": 9, "PA": 9, "TP": "1W6 + 2" },
-			"Dolch":      { "AT": 7, "PA": 4, "TP": "1W6 + 1" },
-			"Waffenlos":  { "AT": 7, "PA": 4, "TP": "1W6" }
+		"weapons": {
+			"Magierstab": {
+				"AT": 9,
+				"PA": 9,
+				"TP": "1W6 + 2"
+			},
+			"Dolch": {
+				"AT": 7,
+				"PA": 4,
+				"TP": "1W6 + 1"
+			},
+			"Waffenlos": {
+				"AT": 7,
+				"PA": 4,
+				"TP": "1W6"
+			}
 		}
 	},
-	"spells":
-	{
-		"Balsam Salabunde":
-		{
-			"attributes": ["KL","IN","FF"],
+	"spells": {
+		"Balsam Salabunde": {
+			"attributes": [
+				"KL",
+				"IN",
+				"FF"
+			],
 			"value": 4,
 			"cost": "1 AsP pro LeP",
 			"cast_time": 16,
@@ -98,9 +310,12 @@
 			"duration": 0,
 			"text": "Heilzauber. Eingesetzte AsP dürfen die FW nicht überschreiten."
 		},
-		"Blitz dich find":
-		{
-			"attributes": ["MU","IN","CH"],
+		"Blitz dich find": {
+			"attributes": [
+				"MU",
+				"IN",
+				"CH"
+			],
 			"value": 10,
 			"cost": "4 AsP",
 			"cast_time": 1,
@@ -108,9 +323,12 @@
 			"duration": 4,
 			"text": "Probe -2. Alle Proben des Ziels sind -1."
 		},
-		"Duplicatus":
-		{
-			"attributes": ["KL","IN","CH"],
+		"Duplicatus": {
+			"attributes": [
+				"KL",
+				"IN",
+				"CH"
+			],
 			"value": 7,
 			"cost": "6 AsP",
 			"cast_time": 2,
@@ -118,9 +336,12 @@
 			"duration": 10,
 			"text": "Zwei Doppelgänger. Gegner haben nurnoch 1/3 Chance, zu treffen."
 		},
-		"Ignifaxius":
-		{
-			"attributes": ["MU","KL","CH"],
+		"Ignifaxius": {
+			"attributes": [
+				"MU",
+				"KL",
+				"CH"
+			],
 			"value": 8,
 			"cost": "8 AsP",
 			"cast_time": 2,
@@ -128,9 +349,12 @@
 			"duration": 0,
 			"text": "2W6 + 6 TP. Schilde-PA oder Ausweichen -2 können verteidigen."
 		},
-		"Motoricus":
-		{
-			"attributes": ["KL","FF","KK"],
+		"Motoricus": {
+			"attributes": [
+				"KL",
+				"FF",
+				"KK"
+			],
 			"value": 5,
 			"cost": "4 AsP",
 			"cast_time": 2,
@@ -138,9 +362,12 @@
 			"duration": "5 Minuten",
 			"text": "Telekinese von Objekten bis 1 Stein bei 5 Schritt pro Aktion."
 		},
-		"Penetrizzel":
-		{
-			"attributes": ["MU","KL","IN"],
+		"Penetrizzel": {
+			"attributes": [
+				"MU",
+				"KL",
+				"IN"
+			],
 			"value": 4,
 			"cost": "6 AsP",
 			"cast_time": 2,
@@ -148,9 +375,12 @@
 			"duration": "1 Minute",
 			"text": "Blick durch feste Materie < 60cm."
 		},
-		"Respondami":
-		{
-			"attributes": ["MU","IN","CH"],
+		"Respondami": {
+			"attributes": [
+				"MU",
+				"IN",
+				"CH"
+			],
 			"value": 5,
 			"cost": "8 AsP",
 			"cast_time": 2,
@@ -158,9 +388,12 @@
 			"duration": "15 Minuten",
 			"text": "Probe -2. Ziel muss 3 Ja/Nein-Fragen korrekt beantworten."
 		},
-		"Transversalis":
-		{
-			"attributes": ["MU","CH","KO"],
+		"Transversalis": {
+			"attributes": [
+				"MU",
+				"CH",
+				"KO"
+			],
 			"value": 6,
 			"cost": "8 AsP + 1 AsP pro Meile",
 			"cast_time": 8,
