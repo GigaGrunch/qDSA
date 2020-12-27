@@ -202,6 +202,21 @@ current_layout.addStretch()
 end_layout()
 
 
+# inventory
+begin_sub_widget("Inventar")
+begin_table(2)
+
+item_label = QLabel("Dicke Axt", margin=5)
+item_amount = QSpinBox()
+
+row = current_layout.rowCount()
+current_layout.setRowCount(row + 1)
+current_layout.setCellWidget(row, 0, item_label)
+current_layout.setCellWidget(row, 1, item_amount)
+current_layout.resizeColumnsToContents()
+end_layout()
+end_layout()
+
 
 # advantages
 begin_sub_widget("Vorteile / Nachteile")
