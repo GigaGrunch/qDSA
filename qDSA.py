@@ -8,6 +8,7 @@ from PySide2.QtCore import *
 argument_parser = ArgumentParser()
 argument_parser.add_argument("character_json_file", type=str)
 arguments = argument_parser.parse_args()
+character_json_file = arguments.character_json_file
 
 
 app = QApplication(sys.argv)
@@ -182,11 +183,11 @@ def spell(name: str, object):
 	current_layout.resizeColumnsToContents()
 
 
-with open(arguments.character_json_file) as file:
+with open(character_json_file) as file:
 	character_file_text = file.read()
 character_json = json.loads(character_file_text)
 
-with open(arguments.character_json_file + ".backup", "w") as backup_file:
+with open(character_json_file + ".backup", "w") as backup_file:
 	backup_file.write(character_file_text)
 
 
@@ -207,7 +208,12 @@ end_layout()
 
 # inventory
 def change_item_amount(name, amount):
-	print("{}: {}".format(name, amount))
+	global character_json_file
+
+	character_json["inventory"][name] = amount
+	with open(character_json_file, "w") as file:
+		text = json.dumps(character_json, indent="\t", ensure_ascii=False)
+		file.write(text)
 
 if "inventory" in character_json:
 	begin_sub_widget("Inventar")
@@ -219,7 +225,7 @@ if "inventory" in character_json:
 	money_spinbox.setValue(character_json["inventory"]["money"])
 
 	money_spinbox.valueChanged.connect(lambda: 
-		change_item_amount("Kreuzer", money_spinbox.value()))
+		change_item_amount("money", money_spinbox.value()))
 
 	row = current_layout.rowCount()
 	current_layout.setRowCount(row + 1)
