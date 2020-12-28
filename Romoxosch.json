@@ -1,0 +1,300 @@
+{
+	"name": "Romoxosch Sohn des Dwarosch",
+	"inventory": {
+		"money": 1008
+	},
+	"attributes": {
+		"MU": 14,
+		"KL": 10,
+		"IN": 12,
+		"CH": 9,
+		"FF": 13,
+		"GE": 11,
+		"KO": 15,
+		"KK": 15
+	},
+	"advantages": {
+		"Hohe Lebenskraft IV": "Die LeP sind um 4 Punkte höher als üblich (bereits eingerechnet)",
+		"Höheres Startkapital": "Der Zwerg konnte sich mehr und teurere Ausrüstung leisten",
+		"Verbesserte Regeneration I": "+1 LeP pro Regenerationsphase",
+		"Zwergnase": "Proben auf Sinnesschärfe zur Entdeckung von Geheimtüren etc. um 1 erleichtert",
+		"Goldgier": "Probe auf Willenskraft, um seiner Goldgier zu widerstehen",
+		"Fallen entschärfen": "Bei entschärfen von Fallen mit dem Talent Schlösserknacken entfällt die Erschwernis von 3"
+	},
+	"talents": {
+		"Körpertalente": {
+			"Klettern": {
+				"attributes": [
+					"MU",
+					"GE",
+					"KK"
+				],
+				"value": 4
+			},
+			"Körperbeherrschung": {
+				"attributes": [
+					"GE",
+					"GE",
+					"KO"
+				],
+				"value": 2
+			},
+			"Kraftakt": {
+				"attributes": [
+					"KO",
+					"KK",
+					"KK"
+				],
+				"value": 8
+			},
+			"Schwimmen": {
+				"attributes": [
+					"GE",
+					"KO",
+					"KK"
+				],
+				"value": 1
+			},
+			"Selbstbeherrschung": {
+				"attributes": [
+					"MU",
+					"MU",
+					"KO"
+				],
+				"value": 8
+			},
+			"Sinnesschärfe": {
+				"attributes": [
+					"KL",
+					"IN",
+					"IN"
+				],
+				"value": 4
+			},
+			"Verbergen": {
+				"attributes": [
+					"MU",
+					"IN",
+					"GE"
+				],
+				"value": 4
+			}
+		},
+		"Gesellschaftstalente": {
+			"Betören": {
+				"attributes": [
+					"MU",
+					"CH",
+					"CH"
+				],
+				"value": 0
+			},
+			"Einschüchtern": {
+				"attributes": [
+					"MU",
+					"IN",
+					"CH"
+				],
+				"value": 6
+			},
+			"Gassenwissen": {
+				"attributes": [
+					"KL",
+					"IN",
+					"CH"
+				],
+				"value": 2
+			},
+			"Menschenkenntnis": {
+				"attributes": [
+					"KL",
+					"IN",
+					"CH"
+				],
+				"value": 2
+			},
+			"Überreden": {
+				"attributes": [
+					"MU",
+					"IN",
+					"CH"
+				],
+				"value": 2
+			},
+			"Verkleiden": {
+				"attributes": [
+					"IN",
+					"CH",
+					"GE"
+				],
+				"value": 2
+			},
+			"Willenskraft": {
+				"attributes": [
+					"MU",
+					"IN",
+					"CH"
+				],
+				"value": 10
+			}
+		},
+		"Naturtalente": {
+			"Fährtensuchen": {
+				"attributes": [
+					"MU",
+					"IN",
+					"GE"
+				],
+				"value": 2
+			},
+			"Orientierung": {
+				"attributes": [
+					"KL",
+					"IN",
+					"IN"
+				],
+				"value": 4
+			},
+			"Pflanzenkunde": {
+				"attributes": [
+					"KL",
+					"FF",
+					"KO"
+				],
+				"value": 0
+			},
+			"Tierkunde": {
+				"attributes": [
+					"MU",
+					"MU",
+					"CH"
+				],
+				"value": 0
+			},
+			"Wildnisleben": {
+				"attributes": [
+					"MU",
+					"GE",
+					"KO"
+				],
+				"value": 0
+			}
+		},
+		"Wissenstalente": {
+			"Geographie": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 1
+			},
+			"Geschichtswissen": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 5
+			},
+			"Götter & Kulte": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 3
+			},
+			"Kriegskunst": {
+				"attributes": [
+					"MU",
+					"KL",
+					"IN"
+				],
+				"value": 4
+			},
+			"Magiekunde": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 0
+			},
+			"Sagen & Legenden": {
+				"attributes": [
+					"KL",
+					"KL",
+					"IN"
+				],
+				"value": 5
+			}
+		},
+		"Handwerkstalente": {
+			"Alchimie": {
+				"attributes": [
+					"MU",
+					"KL",
+					"FF"
+				],
+				"value": 0
+			},
+			"Handel": {
+				"attributes": [
+					"KL",
+					"IN",
+					"CH"
+				],
+				"value": 8
+			},
+			"Heilkunde Gift": {
+				"attributes": [
+					"MU",
+					"KL",
+					"IN"
+				],
+				"value": 8
+			},
+			"Heilkunde Wunden": {
+				"attributes": [
+					"KL",
+					"FF",
+					"FF"
+				],
+				"value": 8
+			},
+			"Schlösserknacken": {
+				"attributes": [
+					"IN",
+					"FF",
+					"FF"
+				],
+				"value": 5
+			}
+		}
+	},
+	"combat": {
+		"base": {
+			"Initiative": 12,
+			"Ausweichen": 6,
+			"Geschwindigkeit": 8
+		},
+		"weapons": {
+			"Magierstab": {
+				"AT": 9,
+				"PA": 9,
+				"TP": "1W6 + 2"
+			},
+			"Dolch": {
+				"AT": 7,
+				"PA": 4,
+				"TP": "1W6 + 1"
+			},
+			"Waffenlos": {
+				"AT": 7,
+				"PA": 4,
+				"TP": "1W6"
+			}
+		}
+	}
+}
