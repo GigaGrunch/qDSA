@@ -1,0 +1,19 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "Run Hesi",
+			"shell_cmd": "python qDSA.py Hesindian.json"
+		},
+		{	
+			"name": "Run Romoxosch",
+			"shell_cmd": "python qDSA.py Romoxosch.json"
+		}
+	]
+}
