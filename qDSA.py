@@ -193,17 +193,19 @@ with open(character_json_file + ".backup", "w") as backup_file:
 
 
 # character name
-label(character_json["name"])
+if "name" in character_json:
+	label(character_json["name"])
 
 
 
 # attributes
-begin_horizontal()
-current_layout.addStretch()
-for attribute_key, attribute_value in character_json["attributes"].items():
-	attribute(attribute_key, attribute_value)
-current_layout.addStretch()
-end_layout()
+if "attributes" in character_json:
+	begin_horizontal()
+	current_layout.addStretch()
+	for attribute_key, attribute_value in character_json["attributes"].items():
+		attribute(attribute_key, attribute_value)
+	current_layout.addStretch()
+	end_layout()
 
 
 # inventory
@@ -237,58 +239,62 @@ if "inventory" in character_json:
 
 
 # advantages
-begin_sub_widget("Vorteile / Nachteile")
-begin_table(2)
-for advantage_key, advantage_value in character_json["advantages"].items():
-	advantage(advantage_key, advantage_value)
-end_layout()
-end_layout()
+if "advantages" in character_json:
+	begin_sub_widget("Vorteile / Nachteile")
+	begin_table(2)
+	for advantage_key, advantage_value in character_json["advantages"].items():
+		advantage(advantage_key, advantage_value)
+	end_layout()
+	end_layout()
 
 
 
 # talents
-begin_sub_widget("Talente")
-talent_index = 0
-for talent_header, talents_object in character_json["talents"].items():
-	if talent_index % 2 == 0:
-		begin_horizontal()
+if "talents" in character_json:
+	begin_sub_widget("Talente")
+	talent_index = 0
+	for talent_header, talents_object in character_json["talents"].items():
+		if talent_index % 2 == 0:
+			begin_horizontal()
 
-	begin_table(3, talent_header)
-	for talent_key, talent_object in talents_object.items():
-		talent(talent_key, talent_object["attributes"], talent_object["value"])
-	end_layout()
-
-	if talent_index % 2 == 1:
+		begin_table(3, talent_header)
+		for talent_key, talent_object in talents_object.items():
+			talent(talent_key, talent_object["attributes"], talent_object["value"])
 		end_layout()
 
-	talent_index += 1
+		if talent_index % 2 == 1:
+			end_layout()
 
-current_layout.addStretch()
-end_layout()
-end_layout()
+		talent_index += 1
+
+	current_layout.addStretch()
+	end_layout()
+	end_layout()
 
 # combat
-begin_sub_widget("Kampf")
-begin_horizontal()
-current_layout.addStretch()
-for base_key, base_value in character_json["combat"]["base"].items():
-	attribute(base_key, base_value)
-current_layout.addStretch()
-end_layout()
+if "combat" in character_json:
+	begin_sub_widget("Kampf")
+	begin_horizontal()
+	current_layout.addStretch()
+	for base_key, base_value in character_json["combat"]["base"].items():
+		attribute(base_key, base_value)
+	current_layout.addStretch()
+	end_layout()
 
-begin_table(4, headers=["Waffe", "AT", "PA", "TP"])
-for weapon_key, weapon_object in character_json["combat"]["weapons"].items():
-	weapon(weapon_key, weapon_object)
-end_layout()
-end_layout()
+	begin_table(4, headers=["Waffe", "AT", "PA", "TP"])
+	for weapon_key, weapon_object in character_json["combat"]["weapons"].items():
+		weapon(weapon_key, weapon_object)
+	end_layout()
+	end_layout()
 
-
-begin_sub_widget("Magie")
-begin_table(8, headers=["Zauber", "Probe", "FW", "Kosten", "Zauberdauer", "Reichweite", "Wirkungsdauer", "Beschreibung"])
-for spell_key, spell_object in character_json["spells"].items():
-	spell(spell_key, spell_object)
-end_layout()
-end_layout()
+# spells
+if "spells" in character_json:
+	begin_sub_widget("Magie")
+	begin_table(8, headers=["Zauber", "Probe", "FW", "Kosten", "Zauberdauer", "Reichweite", "Wirkungsdauer", "Beschreibung"])
+	for spell_key, spell_object in character_json["spells"].items():
+		spell(spell_key, spell_object)
+	end_layout()
+	end_layout()
 
 
 main_layout.addStretch()
