@@ -1,5 +1,19 @@
 {
 	"name": "Hesindian Schlangentreu",
+	"state": {
+		"life": {
+			"current": 15,
+			"maximum": 27
+		},
+		"astral": {
+			"current": 30,
+			"maximum": 42
+		},
+		"fate": {
+			"current": 2,
+			"maximum": 3
+		}
+	},
 	"attributes": {
 		"MU": 12,
 		"KL": 15,

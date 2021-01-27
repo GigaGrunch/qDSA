@@ -192,6 +192,39 @@ if "attributes" in character_json:
 	current_layout.addStretch()
 	end_layout()
 
+# life/astral/fate state pools
+def make_state(name, object):
+	global current_layout
+
+	current = object["current"]
+	maximum = object["maximum"]
+	name_label = label(name)
+	spinbox = QSpinBox()
+	spinbox.setMaximum(maximum)
+	spinbox.setValue(current)
+	maximum_label = label("/ {}".format(maximum))
+	current_layout.addWidget(name_label)
+	current_layout.addWidget(spinbox)
+	current_layout.addWidget(maximum_label)
+
+if "state" in character_json:
+	state = character_json["state"]
+
+	begin_horizontal()
+	current_layout.addStretch()
+	current_layout.addStretch()
+	if "life" in state:
+		make_state("LeP:", state["life"])
+		current_layout.addStretch()
+	if "astral" in state:
+		make_state("AsP:", state["astral"])
+		current_layout.addStretch()
+	if "fate" in state:
+		make_state("Schips", state["fate"])
+		current_layout.addStretch()
+	current_layout.addStretch()
+	end_layout()
+
 
 # inventory
 def change_item_amount(name, amount):
