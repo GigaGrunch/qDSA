@@ -1,5 +1,15 @@
 {
 	"name": "Romoxosch Sohn des Dwarosch",
+	"state": {
+		"LeP": {
+			"current": 66,
+			"maximum": 100
+		},
+		"Schips": {
+			"current": 2,
+			"maximum": 3
+		}
+	},
 	"inventory": {
 		"money": 1008
 	},

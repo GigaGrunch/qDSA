@@ -1,5 +1,19 @@
 {
 	"name": "Hesindian Schlangentreu",
+	"state": {
+		"LeP": {
+			"current": 14,
+			"maximum": 27
+		},
+		"AsP": {
+			"current": 28,
+			"maximum": 42
+		},
+		"Schips": {
+			"current": 3,
+			"maximum": 3
+		}
+	},
 	"attributes": {
 		"MU": 12,
 		"KL": 15,
@@ -11,7 +25,7 @@
 		"KK": 9
 	},
 	"inventory": {
-		"money": 1600
+		"money": 1597
 	},
 	"advantages": {
 		"Zauberer": "Ja, ich kann zaubern",
