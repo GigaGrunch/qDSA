@@ -206,18 +206,65 @@ if "inventory" in character_json:
 	begin_sub_widget("Inventar")
 	begin_table(2)
 
-	money_label = QLabel("Kreuzer", margin=5)
-	money_spinbox = QSpinBox()
-	money_spinbox.setMaximum(999999)
-	money_spinbox.setValue(character_json["inventory"]["money"])
+	money = character_json["inventory"]["money"]
+	remainder = money
+	k = money % 10
+	remainder -= k
+	h = (remainder / 10) % 10
+	remainder -= (h * 10)
+	s = (remainder / 100) % 10
+	remainder -= (s * 100)
+	d = (remainder / 1000)
+	remainder -= (d * 1000)
 
-	money_spinbox.valueChanged.connect(lambda: 
-		change_item_amount("money", money_spinbox.value()))
+	if remainder != 0:
+		print("Money calculation failure!")
+		exit(1)
 
-	row = current_layout.rowCount()
-	current_layout.setRowCount(row + 1)
-	current_layout.setCellWidget(row, 0, money_label)
-	current_layout.setCellWidget(row, 1, money_spinbox)
+	def money_spinbox(label, initial_value):
+		label = QLabel(label, margin=5)
+		spinbox = QSpinBox()
+		spinbox.setMaximum(999999)
+		spinbox.setValue(initial_value)
+
+		row = current_layout.rowCount()
+		current_layout.setRowCount(row + 1)
+		current_layout.setCellWidget(row, 0, label)
+		current_layout.setCellWidget(row, 1, spinbox)
+
+		return spinbox
+
+	d_spinbox = money_spinbox("Dukaten", d)
+	s_spinbox = money_spinbox("Silbertaler", s)
+	h_spinbox = money_spinbox("Heller", h)
+	k_spinbox = money_spinbox("Kreuzer", k)
+
+	def change_currency(lower_spinbox, higher_spinbox):
+		if lower_spinbox.value() == 0 and higher_spinbox.value() > 0:
+			lower_blocker = QSignalBlocker(lower_spinbox)
+			higher_blocker = QSignalBlocker(higher_spinbox)
+
+			higher_spinbox.setValue(higher_spinbox.value() - 1)
+			lower_spinbox.setValue(10)
+
+			lower_blocker.unblock()
+			higher_blocker.unblock()
+
+	def value_changed(changed_spinbox = None, higher_spinbox = None):
+		change_item_amount("money",
+			k_spinbox.value() +
+			h_spinbox.value() *   10 +
+			s_spinbox.value() *  100 +
+			d_spinbox.value() * 1000)
+		change_currency(k_spinbox, h_spinbox)
+		change_currency(h_spinbox, s_spinbox)
+		change_currency(s_spinbox, d_spinbox)
+
+	k_spinbox.valueChanged.connect(lambda: value_changed(k_spinbox, h_spinbox))
+	h_spinbox.valueChanged.connect(lambda: value_changed(h_spinbox, s_spinbox))
+	s_spinbox.valueChanged.connect(lambda: value_changed(s_spinbox, d_spinbox))
+	d_spinbox.valueChanged.connect(lambda: value_changed())
+
 	current_layout.resizeColumnsToContents()
 	end_layout()
 	end_layout()
