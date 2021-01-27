@@ -221,70 +221,35 @@ if "inventory" in character_json:
 		print("Money calculation failure!")
 		exit(1)
 
-	k_label = QLabel("Kreuzer", margin=5)
-	k_spinbox = QSpinBox()
-	k_spinbox.setMaximum(999999)
-	k_spinbox.setValue(k)
+	def money_spinbox(label, initial_value):
+		label = QLabel(label, margin=5)
+		spinbox = QSpinBox()
+		spinbox.setMaximum(999999)
+		spinbox.setValue(initial_value)
 
-	h_label = QLabel("Heller", margin=5)
-	h_spinbox = QSpinBox()
-	h_spinbox.setMaximum(999999)
-	h_spinbox.setValue(h)
+		row = current_layout.rowCount()
+		current_layout.setRowCount(row + 1)
+		current_layout.setCellWidget(row, 0, label)
+		current_layout.setCellWidget(row, 1, spinbox)
 
-	s_label = QLabel("Silbertaler", margin=5)
-	s_spinbox = QSpinBox()
-	s_spinbox.setMaximum(999999)
-	s_spinbox.setValue(s)
+		return spinbox
 
-	d_label = QLabel("Dukaten", margin=5)
-	d_spinbox = QSpinBox()
-	d_spinbox.setMaximum(999999)
-	d_spinbox.setValue(d)
+	d_spinbox = money_spinbox("Dukaten", d)
+	s_spinbox = money_spinbox("Silbertaler", s)
+	h_spinbox = money_spinbox("Heller", h)
+	k_spinbox = money_spinbox("Kreuzer", k)
 
-	k_spinbox.valueChanged.connect(lambda: 
+	def update_money():
 		change_item_amount("money",
 			k_spinbox.value() +
 			h_spinbox.value() *   10 +
 			s_spinbox.value() *  100 +
-			d_spinbox.value() * 1000))
-	h_spinbox.valueChanged.connect(lambda: 
-		change_item_amount("money",
-			k_spinbox.value() +
-			h_spinbox.value() *   10 +
-			s_spinbox.value() *  100 +
-			d_spinbox.value() * 1000))
-	s_spinbox.valueChanged.connect(lambda: 
-		change_item_amount("money",
-			k_spinbox.value() +
-			h_spinbox.value() *   10 +
-			s_spinbox.value() *  100 +
-			d_spinbox.value() * 1000))
-	d_spinbox.valueChanged.connect(lambda: 
-		change_item_amount("money",
-			k_spinbox.value() +
-			h_spinbox.value() *   10 +
-			s_spinbox.value() *  100 +
-			d_spinbox.value() * 1000))
+			d_spinbox.value() * 1000)
 
-	row = current_layout.rowCount()
-	current_layout.setRowCount(row + 1)
-	current_layout.setCellWidget(row, 0, d_label)
-	current_layout.setCellWidget(row, 1, d_spinbox)
-
-	row = current_layout.rowCount()
-	current_layout.setRowCount(row + 1)
-	current_layout.setCellWidget(row, 0, s_label)
-	current_layout.setCellWidget(row, 1, s_spinbox)
-
-	row = current_layout.rowCount()
-	current_layout.setRowCount(row + 1)
-	current_layout.setCellWidget(row, 0, h_label)
-	current_layout.setCellWidget(row, 1, h_spinbox)
-
-	row = current_layout.rowCount()
-	current_layout.setRowCount(row + 1)
-	current_layout.setCellWidget(row, 0, k_label)
-	current_layout.setCellWidget(row, 1, k_spinbox)
+	k_spinbox.valueChanged.connect(lambda: update_money())
+	h_spinbox.valueChanged.connect(lambda: update_money())
+	s_spinbox.valueChanged.connect(lambda: update_money())
+	d_spinbox.valueChanged.connect(lambda: update_money())
 
 	current_layout.resizeColumnsToContents()
 	end_layout()
