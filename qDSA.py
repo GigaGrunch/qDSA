@@ -239,17 +239,31 @@ if "inventory" in character_json:
 	h_spinbox = money_spinbox("Heller", h)
 	k_spinbox = money_spinbox("Kreuzer", k)
 
-	def update_money():
+	def change_currency(lower_spinbox, higher_spinbox):
+		if lower_spinbox.value() == 0 and higher_spinbox.value() > 0:
+			lower_blocker = QSignalBlocker(lower_spinbox)
+			higher_blocker = QSignalBlocker(higher_spinbox)
+
+			higher_spinbox.setValue(higher_spinbox.value() - 1)
+			lower_spinbox.setValue(10)
+
+			lower_blocker.unblock()
+			higher_blocker.unblock()
+
+	def value_changed(changed_spinbox = None, higher_spinbox = None):
 		change_item_amount("money",
 			k_spinbox.value() +
 			h_spinbox.value() *   10 +
 			s_spinbox.value() *  100 +
 			d_spinbox.value() * 1000)
+		change_currency(k_spinbox, h_spinbox)
+		change_currency(h_spinbox, s_spinbox)
+		change_currency(s_spinbox, d_spinbox)
 
-	k_spinbox.valueChanged.connect(lambda: update_money())
-	h_spinbox.valueChanged.connect(lambda: update_money())
-	s_spinbox.valueChanged.connect(lambda: update_money())
-	d_spinbox.valueChanged.connect(lambda: update_money())
+	k_spinbox.valueChanged.connect(lambda: value_changed(k_spinbox, h_spinbox))
+	h_spinbox.valueChanged.connect(lambda: value_changed(h_spinbox, s_spinbox))
+	s_spinbox.valueChanged.connect(lambda: value_changed(s_spinbox, d_spinbox))
+	d_spinbox.valueChanged.connect(lambda: value_changed())
 
 	current_layout.resizeColumnsToContents()
 	end_layout()
