@@ -8,10 +8,12 @@
 	"build_systems":
 	[
 		{
+			"working_dir": "$project_path",
 			"name": "Run Hesi",
 			"shell_cmd": "python qDSA.py Hesindian.json"
 		},
 		{	
+			"working_dir": "$project_path",
 			"name": "Run Romoxosch",
 			"shell_cmd": "python qDSA.py Romoxosch.json"
 		}
