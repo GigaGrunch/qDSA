@@ -176,6 +176,13 @@ with open(character_json_file + ".backup", "w") as backup_file:
 	backup_file.write(character_file_text)
 
 
+def dump_character_file():
+	global character_json_file, character_json
+
+	with open(character_json_file, "w") as file:
+		text = json.dumps(character_json, indent="\t", ensure_ascii=False)
+		file.write(text)
+
 
 # character name
 if "name" in character_json:
@@ -193,12 +200,12 @@ if "attributes" in character_json:
 	end_layout()
 
 # life/astral/fate state pools
-def make_state(name, object):
+def make_state(key, object):
 	global current_layout
 
 	current = object["current"]
 	maximum = object["maximum"]
-	name_label = label(name)
+	name_label = label(key)
 	spinbox = QSpinBox()
 	spinbox.setMaximum(maximum)
 	spinbox.setValue(current)
@@ -206,6 +213,12 @@ def make_state(name, object):
 	current_layout.addWidget(name_label)
 	current_layout.addWidget(spinbox)
 	current_layout.addWidget(maximum_label)
+	
+	spinbox.valueChanged.connect(lambda: update_state(key, spinbox))
+
+def update_state(key, spinbox):
+	character_json["state"][key]["current"] = spinbox.value()
+	dump_character_file()
 
 if "state" in character_json:
 	state = character_json["state"]
@@ -213,15 +226,11 @@ if "state" in character_json:
 	begin_horizontal()
 	current_layout.addStretch()
 	current_layout.addStretch()
-	if "life" in state:
-		make_state("LeP:", state["life"])
+
+	for state_key, state_value in state.items():
+		make_state(state_key, state_value)
 		current_layout.addStretch()
-	if "astral" in state:
-		make_state("AsP:", state["astral"])
-		current_layout.addStretch()
-	if "fate" in state:
-		make_state("Schips", state["fate"])
-		current_layout.addStretch()
+
 	current_layout.addStretch()
 	end_layout()
 
@@ -231,9 +240,7 @@ def change_item_amount(name, amount):
 	global character_json_file
 
 	character_json["inventory"][name] = amount
-	with open(character_json_file, "w") as file:
-		text = json.dumps(character_json, indent="\t", ensure_ascii=False)
-		file.write(text)
+	dump_character_file()
 
 if "inventory" in character_json:
 	begin_sub_widget("Inventar")
