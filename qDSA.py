@@ -91,7 +91,7 @@ def label(text: str, alignment = Qt.AlignCenter):
 	return label
 
 def attribute(name: str, value: int):
-	attribute_label = label("{}\n{}".format(name, value))
+	attribute_label = label("{}\n{}".format(name, value), alignment = Qt.AlignTop | Qt.AlignHCenter)
 	current_layout.addWidget(attribute_label)
 
 def talent(name: str, attributes, value: int):
@@ -261,8 +261,12 @@ if "combat" in character_json:
 	begin_sub_widget("Kampf")
 	begin_horizontal()
 	current_layout.addStretch()
-	for base_key, base_value in character_json["combat"]["base"].items():
-		attribute(base_key, base_value)
+	for combat_key, combat_value in character_json["combat"]["main"].items():
+		base_value = combat_value["base"]
+		equipment_value = combat_value["equipment"]
+		combined_value = base_value + equipment_value
+		combined_value_string = str(base_value) if equipment_value == 0 else "{}\n(base {})".format(combined_value, base_value)
+		attribute(combat_key, combined_value_string)
 	current_layout.addStretch()
 	end_layout()
 
