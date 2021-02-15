@@ -273,10 +273,19 @@
 		}
 	},
 	"combat": {
-		"base": {
-			"Initiative": 12,
-			"Ausweichen": 6,
-			"Geschwindigkeit": 8
+		"main": {
+			"Initiative": {
+				"base": 12,
+				"equipment": -1
+			},
+			"Ausweichen": {
+				"base": 6,
+				"equipment": 0
+			},
+			"Geschwindigkeit": {
+				"base": 8,
+				"equipment": -1
+			}
 		},
 		"weapons": {
 			"Magierstab": {
